@@ -342,3 +342,5 @@ print(N, '분 전 시간은', total_min//60, '시', total_min%60, '분 입니다
 
 
 
+
+
