@@ -17,9 +17,9 @@ n = float(input('입력: '))
 
 if n > 0:
     print("양수입력")
-elif n < 0:
+if n < 0:
     print("음수입력")
-else:
+if n == 0:
     print("0입력")
 
 
