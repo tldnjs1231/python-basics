@@ -1,41 +1,47 @@
-# A = [1, 2, 3]
-# B = (1, 2, 3)
+A = [1, 2, 3]
+B = (1, 2, 3)
 
-# print(type(A))
-# print(type(B))
+print(type(A))
+print(type(B))
 
-# A = [1]
-# B = (1)
-# C = ('apple')
-# D = ('apple',)
 
-# print(type(A))
-# print(type(B))
-# print(type(C))
-# print(type(D))
 
 # B, C의 경우 소괄호 안에 자료가 하나 뿐이면 튜플로 인식하지 않음
 # 튜플로 인식하도록 하려면 뒤에 D처럼 뒤에 ,를 붙여주면 됨
 
+A = [1]
+B = (1)
+C = ('apple')
+D = ('apple',)
 
-# hero = ["1. 아이언맨", "2. 스파이더맨"]
+print(type(A))
+print(type(B))
+print(type(C))
+print(type(D))
 
-# print(hero)
-# user = int(input("영웅선택 : "))
 
-# print(hero[user-1])
 
+hero = ["1. 아이언맨", "2. 스파이더맨"]
+
+print(hero)
+user = int(input("영웅선택 : "))
+
+print(hero[user-1])
 # 사용자가 입력하는 값과 실제 인덱스가 다르므로 -1 해주어야 함
 
 
+
+##### 1 #####
 # 1에서부터 입력 받은 수(N)까지 출력하는 프로그램
 
-# N = int(input('입력: '))
+N = int(input('입력: '))
 
-# for i in range(1, N+1):
-#     print(i)
+for i in range(1, N+1):
+    print(i)
 
 
+
+##### 2 #####
 # N부터 1까지 출력하는 프로그램
 
 # N = int(input('입력: '))
