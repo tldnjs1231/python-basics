@@ -105,7 +105,7 @@ print(len(i))
 
 
 
-##### 반복문 실습 문제 모음 #####
+##### for문 예제 모음 #####
 
 # Q1. 1에서 N까지 7의 배수의 합과 개수를 구하는 코드를 작성하세요.
 
@@ -251,39 +251,10 @@ for i in range(1, 10):
 
 
 
-# (추가 심화 문제)
-# o 는 1점, x 는 0점이다.
-# 만약 o 가 연속으로 등장할 경우 점수가 배가 되어 계산된다고 한다.
-# 하지만, 중간에 x 를 만나게 되면 배수가 끊겨버린다.
-# ex) oxooxxo  >  1 + 1 + 2 + 1  > 5 점
-#     xoooxoo  >  1 + 2 + 4 + 1 + 2 > 10 점
-#     oooooxo  >  1 + 2 + 4 + 8 + 16 + 1 > 32 점
-
-# ox 를 입력받고 점수를 반환하는 프로그램을 작성하세요
-
-ox = input('입력: ')
-
-if ox[0] == 'o':
-    score = [1]
-else:
-    score = [0]
-
-for i in range(1, len(ox)):
-    if ox[i] == 'o':
-        if ox[i-1] == 'o':
-            score.append(score[i-1]*2)
-        else:
-            score.append(1)
-    else:
-        score.append(0)
-
-print(sum(score))
-
-
 
 ##### for문 심화 문제 #####
 
-# 4개의 수를 입력 받고 짝수, 홀수를 판별하는 프로그램(1)
+# Q1. 4개의 수를 입력 받고 짝수, 홀수를 판별하는 프로그램(1)
 
 for i in range(4):
     n = int(input('수 입력: '))
@@ -294,7 +265,7 @@ for i in range(4):
 
 
 
-# 4개의 수를 입력 받고 짝수, 홀수를 판별하는 프로그램(2)
+# Q2. 4개의 수를 입력 받고 짝수, 홀수를 판별하는 프로그램(2)
 
 num = []
 
@@ -310,76 +281,44 @@ for j in num:
 
 
 
-# 몇 회 입력하시겠습니까? (ppt 파일 참고)
+# Q3.
+# 입력 횟수와 2개의 수, 연산자를 입력 받고
+# 입력 횟수만큼 연산을 실행하는 프로그램
 
-# n = int(input('몇 회 입력하시겠습니까? '))
+n = int(input('몇 회 입력하시겠습니까? '))
 
-# for i in range(n):
+for i in range(n):
     
-#     a = int(input('수 입력: '))
-#     b = int(input('수 입력: '))
-#     op = int(input('연산자 입력(덧셈1, 뺄셈2): '))
+    a = int(input('수 입력: '))
+    b = int(input('수 입력: '))
+    op = int(input('연산자 입력(덧셈1, 뺄셈2): '))
 
-#     if op == 1:
-#         print(a, '+', b, '=', a+b)
-#     elif op == 2:
-#         print(a, '-', b, '=', a-b)
-#     else:
-#         print('입력 오류!!')
+    if op == 1:
+        print(a, '+', b, '=', a+b)
+    elif op == 2:
+        print(a, '-', b, '=', a-b)
+    else:
+        print('입력 오류!!')
     
-#     print('='*30)
+    print('='*30)
 
 
 
-# 5개의 점수를 입력받고 평균 이하의 수들을 구하는 프로그램
+# Q4. 5개의 점수를 입력받고 평균 이하의 수들을 구하는 프로그램
 
-# score = []
+score = []
 
-# for i in range(5):
-#     n = int(input('수 입력: '))
-#     score.append(n)
+for i in range(5):
+    n = int(input('수 입력: '))
+    score.append(n)
 
-# avg = sum(score)/len(score)
+avg = sum(score)/len(score)
 
-# print('5과목의 평균은', avg)
+print('5과목의 평균은', avg)
 
-# for j in score:
-#     if j <= avg:
-#         print(j, '는 평균 이하')
-
-
-
-##### 추가 문제 #####
-
-# Q. 문자열을 입력받고, 괄호가 잘 닫혀 있는지 판단해주는 프로그램
-# 예제입력1 : (()
-#           잘못 닫혀있습니다.
-# 예제입력2 : )()(
-#           잘못 닫혀있습니다.
-# 예제입력3 : (()))(
-#           잘못 닫혀있습니다.
-# 예제입력4 : (()(()))
-#           잘 닫혀있습니다.
-
-# 좀 더 고민해보기...
-# 단순히 (와 )의 개수가 같은 것으로 판단하면 ())(() 이런 예외가 있음
-# 특정 시점에 맨 앞에서부터 (의 개수가 )의 개수보다 더 많아야 할까..?
-
-par = input('입력: ')
-
-li = []
-
-for i in par:
-
-    li.append(i)
-
-    if li.count('(') < li.count(')'):
-        break
-
-if li.count('(') == li.count(')'):
-    print('잘 닫혀있습니다.')
-else:
-    print('잘못 닫혀있습니다.')
+for j in score:
+    if j <= avg:
+        print(j, '는 평균 이하')
 
 
 
