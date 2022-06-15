@@ -1,76 +1,77 @@
 import turtle as t
 from random import randint as ri
 
-# t.shape('turtle') # 커서 모양 거북이로 설정
-# t.color('red') # 색상 설정
+
+t.shape('turtle') # 커서 모양 설정
+t.color('red') # 커서 색상 설정
 
 
-# print(t.getshapes()) # 커서 모양 설정 가능한 친구들(리스트)
+print(t.getshapes()) # 설정 가능한 커서 모양 list
 
-# 커서 모양 설정 가능한 친구들 직접 확인해보기
-# for i in t.getshapes():
-#     t.shape(i)
-#     input(i) # enter 누를 때까지 이름 언급해주고 기다림
-
-
-# t.pensize(7) # 펜 두께 설정(7 정도가 적당함)
-# t.speed(0) # 이동 속도 설정(0~1, 0에 가까울수록 빠름)
-
-# t.pu() # pen up: 펜을 든다
-# t.pd() # pen down: 펜을 내린다
-# t.ht() # hide turtle: 펜 숨김
-# t.st() # show turtle: 펜 드러냄
-
-# t.fd() # 머리 방향으로 100만큼 이동
-# t.lt() # 왼쪽으로 90도 회전
-# t.rt() # 오른쪽으로 90도 회전
+# 설정 가능한 커서 모양 직접 확인
+for i in t.getshapes():
+    t.shape(i)
+    input(i) # enter 누르면 다음 모양으로 이동
 
 
+t.pensize(7) # 펜 두께 설정(7 정도가 적당)
+t.speed(0) # 이동 속도 설정(0~1, 0에 가까울수록 빠름)
 
-# 도형 그리기 예제
+t.pu() # pen up: 펜을 든다
+t.pd() # pen down: 펜을 내린다
+t.ht() # hide turtle: 펜 숨김
+t.st() # show turtle: 펜 드러냄
+
+t.fd() # 머리 방향으로 100 픽셀 만큼 이동
+t.lt() # 왼쪽으로 90도 회전
+t.rt() # 오른쪽으로 90도 회전
+
+
+
+##### 도형 그리기 예제 #####
 
 # 1. 삼각형
-# t.fd(100)
-# t.lt(120)
-# t.fd(100)
-# t.lt(120)
-# t.fd(100)
-
-# for문 활용
-# for i in range(3):
-#     t.fd(100)
-#     t.lt(120)
+for i in range(3):
+    t.fd(100)
+    t.lt(120)
 
 
 # 2. 사각형
-# t.fd(100)
-# t.lt(90)
-# t.fd(100)
-# t.lt(90)
-# t.fd(100)
-# t.lt(90)
-# t.fd(100)
-
-# for i in range(4):
-#     t.fd(100)
-#     t.lt(90)
+for i in range(4):
+    t.fd(100)
+    t.lt(90)
 
 
 # 3. 오각형
-# for i in range(5):
-#     t.fd(100)
-#     t.lt(72)
+for i in range(5):
+    t.fd(100)
+    t.lt(72)
 
 
 # 4. N각형
-# 5. 원
-# 6. 별표
+N = int(input('N각형: '))
+for i in range(N):
+        t.fd(100)
+        t.lt(360/N)
 
-# 3~9각형 출력하기
-# for k in range(3, 10):
-#     for i in range(k):
-#         t.fd(100)
-#         t.lt(360/k)
+
+# 5. 3~9각형
+for N in range(3, 10):
+    for i in range(N):
+        t.fd(100)
+        t.lt(360/N)
+
+
+# 6. 별
+for i in range(5):
+    t.fd(100)
+    t.rt(144)
+
+
+# 7. 원
+t.circle(50) # 반지름이 50 픽셀인 원을 반시계 방향으로 그림
+t.dot(100, 'blue') # 현재 펜의 위치를 중심으로 지름 100 픽셀의 원을 그림 (default: pencolor)
+
 
 
 
@@ -80,7 +81,7 @@ t.ht()
 t.pu()
 t.speed(0)
 
-t.colormode(255) # 색상 RGB로 조정하게끔 설정
+t.colormode(255) # 색상 RGB로 조정하도록 설정
 # t.color(100, 100, 100) # RGB 색상 설정
 t.setup(900, 600) # 창의 가로 세로 길이 설정
 # t.goto(0, 0) # x, y로 커서 이동
@@ -121,7 +122,8 @@ for i in di:
     t.write(i, font=('맑은고딕', (di[i]+4)*3, 'bold'))
 
 
-t.mainloop() # 창을 유지시켜줌
+t.mainloop() # turtle 창 유지(default: 코드 실행 후 창 닫기)
+t.exitonclick() # 클릭 시 창 닫기
 
 
 
