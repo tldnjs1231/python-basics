@@ -71,7 +71,7 @@ so i am a light it up like dynamite  whoa oh oh"""
 words = lyrics.split()
 
 for i in set(words):
-    
+    print(i, words.count(i))
 
 
 
