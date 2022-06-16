@@ -1,5 +1,4 @@
 import turtle as t
-from random import randint as ri
 
 
 t.shape('turtle') # 커서 모양 설정
@@ -25,6 +24,9 @@ t.st() # show turtle: 펜 드러냄
 t.fd() # 머리 방향으로 100 픽셀 만큼 이동
 t.lt() # 왼쪽으로 90도 회전
 t.rt() # 오른쪽으로 90도 회전
+
+t.mainloop() # turtle 창 유지(default: 코드 실행 후 창 닫기)
+t.exitonclick() # 클릭 시 창 닫기
 
 
 
@@ -77,10 +79,6 @@ t.dot(100, 'blue') # 현재 펜의 위치를 중심으로 지름 100 픽셀의 �
 
 ##### 글자 출력 #####
 
-t.ht()
-t.pu() # 글자 출력을 위해 커서가 움직일 때 동선이 남지 않도록
-t.speed(0)
-
 t.colormode(255) # 색상을 문자열('red')이 아닌 RGB로 조정하도록 설정
 # t.color(100, 100, 100) # RGB 색상 설정
 
@@ -98,20 +96,34 @@ t.write('hello', font=('맑은고딕', 30, 'bold'))
 
 
 
-# 실습1: Hello world 를 위치 랜덤하게 2000번 출력하기
+# 글자 출력 실습 전 세팅
+
+import turtle as t
+from random import randint as ri
+
+t.ht() # 커서가 보이지 않도록
+t.pu() # 글자 출력을 위해 커서가 움직일 때 동선이 남지 않도록
+t.speed(0)
+
+t.colormode(255)
+t.setup(900, 600)
+
+
+
+# 실습1: hello를 위치 랜덤하게 2000번 출력하기
 
 for i in range(2000):
-    t.goto(ri(-420, 380), ri(-280, 240)) # 위치 이동
-    t.write('Hello world', font=('맑은고딕', 30, 'bold')) # 출력
+    t.goto(ri(-420, 380), ri(-280, 240)) # 위치 이동: 오른쪽, 위쪽에 여백을 더 많이
+    t.write('hello', font=('맑은고딕', 30, 'bold')) # 글자 출력
 
 
 
-# 실습2: Hello world 를 위치, 색상 랜덤하게 2000번 출력하기
+# 실습2: hello를 위치, 색상 랜덤하게 2000번 출력하기
 
-# for i in range(2000):
-#     t.color(ri(0, 255), ri(0, 255), ri(0, 255)) # 색상 설정
-#     t.goto(ri(-420, 380), ri(-280, 240)) # 위치 이동
-#     t.write('Hello world', font=('맑은고딕', 30, 'bold')) # 출력
+for i in range(2000):
+    t.color(ri(0, 255), ri(0, 255), ri(0, 255)) # 색상 랜덤 설정
+    t.goto(ri(-420, 380), ri(-280, 240)) # 위치 랜덤 이동
+    t.write('hello', font=('맑은고딕', 30, 'bold')) # 글자 출력
 
 
 
@@ -126,13 +138,50 @@ for i in d:
     t.write(i, font=('맑은고딕', (d[i]+4)*3, 'bold'))
 
 
-t.mainloop() # turtle 창 유지(default: 코드 실행 후 창 닫기)
-t.exitonclick() # 클릭 시 창 닫기
+# 글자 크기를 (d[i]+4)*3로 설정한 이유:
+# 빈도수 d[i]로 설정할 경우 빈도의 편차가 너무 커서 특정 글자 몇 개만 잘 보임
+# 작게 출력되는 글자도 잘 보이도록 하기 위해 *3을 하는데,
+# 편차를 줄이기 위해 +4를 먼저 실행
+
+# ex)
+# 1회 x 86 = 86회
+# (1 + 4) * 2 = 10
+# (86 + 4) * 2 = 180
+# 10회 x 18 = 180회
+# 덧셈을 해주면 86배에서 18배로 크게 줄어든 것 확인 가능
 
 
 
+# 실습4: 가사 빈도수 분석 문제에 장치 설정
+# 1) enter 누르면 출력 시작
+# 2) 1초에 다섯 단어 출력
+# 3) 한 번만 등장한 단어는 출력하지 않음
 
-# 다이너마이트 가사 빈도수 분석이랑 이 뒷부분 녹강 확인
+from day15_dynamite import d
+from time import sleep
+
+input()
+num = 0 # 출력되는 단어의 개수
+
+for i in d:
+    
+    # 단어가 한 번만 등장한 경우 continue
+    if d[i] == 1:
+        continue
+    
+    # 단어 다섯 개 출력될 때마다 1초 정지
+    if num % 5 == 0:
+        sleep(1)
+    
+    # 출력하기 전에 글자 수 하나씩 증가
+    num += 1
+    
+    t.color(ri(0, 255), ri(0, 255), ri(0, 255))
+    t.goto(ri(-420, 350), ri(-280, 240))
+    t.write(i, font=('맑은고딕', (d[i]+4)*3, 'bold'))
+
+
+
 
 
 
