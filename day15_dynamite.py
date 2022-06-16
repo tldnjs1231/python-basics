@@ -82,11 +82,11 @@ for i in set(words):
 words = lyrics.split()
 
 # key: 단어, value: 빈도수
-dic = {}
+d = {}
 
 for i in set(words):
-    dic[i] = words.count(i)
-print(dic)
+    d[i] = words.count(i)
+print(d)
 
 
 
