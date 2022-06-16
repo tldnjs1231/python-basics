@@ -66,7 +66,12 @@ so i am a light it up like dynamite  whoa oh oh"""
 
 ##### set 활용: dynamite 문제 #####
 
-# 녹강 확인(1, 2교시 합쳐진 파일: 중간에 쉬는시간에 안잘랐음)
+# BTS - Dynamite 에서 사용된 단어 별 등장 횟수를 중복 없이 출력
+
+words = lyrics.split()
+
+for i in set(words):
+    
 
 
 
