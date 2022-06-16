@@ -130,12 +130,12 @@ for i in range(2000):
 # 실습3: BTS - Dynamite 가사 빈도수 분석
 # 많이 등장하는 단어일수록 크게 보이도록 프로그래밍
 
-from day15_dynamite import d
+from day15_dynamite import dic
 
-for i in d:
+for i in dic:
     t.color(ri(0, 255), ri(0, 255), ri(0, 255))
     t.goto(ri(-420, 350), ri(-280, 240))
-    t.write(i, font=('맑은고딕', (d[i]+4)*3, 'bold'))
+    t.write(i, font=('맑은고딕', (dic[i]+4)*3, 'bold'))
 
 
 # 글자 크기를 (d[i]+4)*3로 설정한 이유:
@@ -157,16 +157,16 @@ for i in d:
 # 2) 1초에 다섯 단어 출력
 # 3) 한 번만 등장한 단어는 출력하지 않음
 
-from day15_dynamite import d
+from day15_dynamite import dic
 from time import sleep
 
 input()
 num = 0 # 출력되는 단어의 개수
 
-for i in d:
+for i in dic:
     
     # 단어가 한 번만 등장한 경우 continue
-    if d[i] == 1:
+    if dic[i] == 1:
         continue
     
     # 단어 다섯 개 출력될 때마다 1초 정지
@@ -178,7 +178,7 @@ for i in d:
     
     t.color(ri(0, 255), ri(0, 255), ri(0, 255))
     t.goto(ri(-420, 350), ri(-280, 240))
-    t.write(i, font=('맑은고딕', (d[i]+4)*3, 'bold'))
+    t.write(i, font=('맑은고딕', (dic[i]+4)*3, 'bold'))
 
 
 
