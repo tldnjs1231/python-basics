@@ -78,7 +78,7 @@ t.dot(100, 'blue') # 현재 펜의 위치를 중심으로 지름 100 픽셀의 �
 ##### 글자 출력 #####
 
 t.ht()
-t.pu()
+t.pu() # 글자 출력을 위해 커서가 움직일 때 동선이 남지 않도록
 t.speed(0)
 
 t.colormode(255) # 색상을 문자열('red')이 아닌 RGB로 조정하도록 설정
@@ -87,22 +87,22 @@ t.colormode(255) # 색상을 문자열('red')이 아닌 RGB로 조정하도록 �
 t.setup(900, 600) # 창의 가로 세로 길이 설정
 # word cloud 출력되기 적당한 크기 설정
 
-# t.goto(0, 0) # x, y로 커서 이동
+t.goto(0, 0) # x, y로 커서 이동
 # 거북이 기본 위치 (0, 0)
 # t.setup(900, 600)의 경우 x축 값은 -450~450, y축 값은 -300~300 존재
 
-# t.write('hello', font=('맑은고딕', 30, 'bold'))
+t.write('hello', font=('맑은고딕', 30, 'bold'))
 # t.write(적을문자, font=(글씨체, 크기, 속성))
-# 글자는 현재 거북이 위치에서 오른쪽, 위 방향으로 출력됨
-# 따라서 이를 고려해 오른쪽, 위쪽에 여백을 남겨놓고 t.goto 설정해야 함
+# 글자는 현재 거북이 위치에서 오른쪽, 위 방향으로 출력
+# 이를 고려해 글자가 잘리지 않도록 오른쪽, 위쪽에 여백을 남겨놓고 t.goto 위치 설정
 
 
 
 # 실습1: Hello world 를 위치 랜덤하게 2000번 출력하기
 
-# for i in range(2000):
-#     t.goto(ri(-420, 380), ri(-280, 240)) # 위치 이동
-#     t.write('Hello world', font=('맑은고딕', 30, 'bold')) # 출력
+for i in range(2000):
+    t.goto(ri(-420, 380), ri(-280, 240)) # 위치 이동
+    t.write('Hello world', font=('맑은고딕', 30, 'bold')) # 출력
 
 
 
@@ -118,12 +118,12 @@ t.setup(900, 600) # 창의 가로 세로 길이 설정
 # 실습3: BTS - Dynamite 가사 빈도수 분석
 # 많이 등장하는 단어일수록 크게 보이도록 프로그래밍
 
-from day15_dynamite import di
+from day15_dynamite import d
 
-for i in di:
+for i in d:
     t.color(ri(0, 255), ri(0, 255), ri(0, 255))
     t.goto(ri(-420, 350), ri(-280, 240))
-    t.write(i, font=('맑은고딕', (di[i]+4)*3, 'bold'))
+    t.write(i, font=('맑은고딕', (d[i]+4)*3, 'bold'))
 
 
 t.mainloop() # turtle 창 유지(default: 코드 실행 후 창 닫기)
